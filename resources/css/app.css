@@ -1,0 +1,104 @@
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #000000;
+    color: #F4F6F7;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: rgba(11, 25, 44, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-links a {
+    color: #F4F6F7;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #708090;
+}
+
+/* ===== HERO ===== */
+.hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), #000000),
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 60px;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    color: #708090;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #708090;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #0B192C;
+}
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: #0B192C;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(112,128,144,0.4);
+}
+
+/* ===== IMAGE FIX ===== */
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* ===== DETAILS IMAGE ===== */
+.car-detail-img {
+    width: 100%;
+    max-width: 500px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 15px;
+}
