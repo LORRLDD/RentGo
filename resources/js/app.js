@@ -1,7 +1,10 @@
-import './bootstrap';
+import { createIcons, Car, Tag, Calendar, Headphones } from 'lucide';
 
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
+createIcons({
+    icons: {
+        Car,
+        Tag,
+        Calendar,
+        Headphones
+    }
+});

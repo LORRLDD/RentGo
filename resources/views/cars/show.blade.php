@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Car Details</title>
     @vite(['resources/css/app.css'])
 </head>
 <body>
@@ -13,21 +14,58 @@
     </div>
 </div>
 
-<div style="display:flex; padding:50px; gap:50px;">
+<div class="detail-container">
 
-    <img src="{{ $car->Image }}" class="car-detail-img">
+    <!-- LEFT IMAGE -->
+    <div class="detail-image">
+        <img src="{{ $car->Image }}">
+    </div>
 
-    <div>
+    <!-- CENTER DETAILS -->
+    <div class="detail-info">
         <h1>{{ $car->Brand }} {{ $car->Model }}</h1>
 
-        <p>Year: {{ $car->Year }}</p>
-        <p>Transmission: {{ $car->Transmission }}</p>
-        <p>Fuel: {{ $car->FuelType }}</p>
-        <p>Seats: {{ $car->Seats }}</p>
+        <p class="desc">
+            Experience luxury driving with premium comfort and performance.
+        </p>
 
-        <h2>₱{{ $car->PricePerDay }}/day</h2>
+        <div class="specs">
+            <div><strong>Year:</strong> {{ $car->Year }}</div>
+            <div><strong>Transmission:</strong> {{ $car->Transmission }}</div>
+            <div><strong>Fuel:</strong> {{ $car->FuelType }}</div>
+            <div><strong>Seats:</strong> {{ $car->Seats }}</div>
+        </div>
 
-        <button class="btn">Book Now</button>
+        <h2 class="price">₱{{ number_format($car->PricePerDay, 2) }} / day</h2>
+    </div>
+
+    <!-- RIGHT BOOKING PANEL -->
+    <div class="booking-box">
+
+        <h3>Book Your Car</h3>
+
+        <form action="{{ route('book.store') }}" method="POST" class="booking-form">
+    @csrf
+
+    @if(session('success'))
+    <div class="success-alert">
+        {{ session('success') }}
+    </div>
+@endif
+
+    <input type="hidden" name="CarID" value="{{ $car->CarID }}">
+
+    <label>Pick-up Date</label>
+    <input type="date" name="PickupDate" required>
+
+    <label>Return Date</label>
+    <input type="date" name="ReturnDate" required>
+
+    <button type="submit" class="confirm-booking-btn">
+        Confirm Booking
+    </button>
+</form>
+
     </div>
 
 </div>

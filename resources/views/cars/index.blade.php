@@ -1,36 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    @vite(['resources/css/app.css'])
-</head>
-<body>
+@extends('layouts.app')
 
-<div class="navbar">
-    <div class="logo">RENTGO</div>
-    <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/cars">Cars</a>
+@section('content')
+<section class="cars-section">
+    <div class="cars-header">
+        <h1>All Cars</h1>
+        <p>Choose the perfect car for your next journey.</p>
     </div>
-</div>
 
-<h2 class="section-title">Available Luxury Cars</h2>
+    <div class="cars-grid">
+        @foreach($cars as $car)
+            <div class="car-card">
+                <img src="{{ $car->Image }}" class="car-img">
 
-<div class="grid">
+                <div class="car-content">
+                    <h2>{{ $car->Brand }} {{ $car->Model }}</h2>
 
-@foreach($cars as $car)
-    <div class="card">
-        <img src="{{ $car->Image }}">
+                    <p class="car-price">
+                        ₱{{ number_format($car->PricePerDay, 2) }}
+                        <span>/ day</span>
+                    </p>
 
-        <div class="card-content">
-            <h3>{{ $car->Brand }} {{ $car->Model }}</h3>
-            <p>₱{{ $car->PricePerDay }} / day</p>
-
-            <a href="/cars/{{ $car->CarID }}" class="btn">View Details</a>
-        </div>
+                    <a href="{{ route('cars.show', $car->CarID) }}" class="details-btn">
+                        View Details <span>→</span>
+                    </a>
+                </div>
+            </div>
+        @endforeach
     </div>
-@endforeach
-
-</div>
-
-</body>
-</html>
+</section>
+@endsection
