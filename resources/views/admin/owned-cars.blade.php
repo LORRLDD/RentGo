@@ -46,7 +46,10 @@
                 <input type="text" name="Brand" placeholder="Brand" required>
                 <input type="text" name="Model" placeholder="Model" required>
                 <input type="number" name="Year" placeholder="Year" required>
+<<<<<<< HEAD
                 <input type="text" name="PlateNumber" placeholder="Plate Number" required>
+=======
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
                 <input type="text" name="Transmission" placeholder="Automatic / Manual" required>
                 <input type="text" name="FuelType" placeholder="Fuel Type" required>
                 <input type="number" name="Seats" placeholder="Seats" required>
@@ -64,12 +67,16 @@
 
                     <div class="admin-fleet-info">
                         <h2>{{ $car->Brand }} {{ $car->Model }}</h2>
+<<<<<<< HEAD
                         <p>
                             {{ $car->Year }}
                             • Plate No: {{ $car->PlateNumber ?? 'N/A' }}
                             • {{ $car->Transmission }}
                             • {{ $car->FuelType }}
                         </p>
+=======
+                        <p>{{ $car->Year }} • {{ $car->Transmission }} • {{ $car->FuelType }}</p>
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
 
                         <div class="admin-fleet-meta">
                             <span>{{ $car->Seats }} Seats</span>

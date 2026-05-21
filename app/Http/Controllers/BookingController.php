@@ -35,7 +35,11 @@ class BookingController extends Controller
             'PickupDate'    => $request->PickupDate,
             'ReturnDate'    => $request->ReturnDate,
             'TotalAmount'   => $totalAmount,
+<<<<<<< HEAD
             'BookingStatus' => 'Pending',
+=======
+            'BookingStatus' => 'Booked',
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
         ]);
 
         return redirect()

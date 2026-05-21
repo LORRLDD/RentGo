@@ -3,6 +3,7 @@
 @section('content')
 <div class="dashboard-wrapper">
 
+<<<<<<< HEAD
     <aside class="dashboard-sidebar">
         <div>
             <div class="dashboard-brand">
@@ -104,6 +105,54 @@
                 </div>
             </div>
 
+=======
+    <main class="dashboard-main">
+        <header class="dashboard-header">
+            <h1>Booking Details</h1>
+            <p>Your premium RentGo reservation summary.</p>
+        </header>
+
+        <section class="luxury-page-card">
+            <span class="badge">Confirmed</span>
+
+            <h2>Honda HR-V</h2>
+
+            <div class="detail-grid">
+                <div class="detail-box">
+                    <span>Rent Date</span>
+                    <strong>May 20, 2026</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Return Date</span>
+                    <strong>May 22, 2026</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Pickup Location</span>
+                    <strong>SM City Cebu</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Total Cost</span>
+                    <strong>₱4,400</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Paid</span>
+                    <strong>₱2,000</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Remaining Balance</span>
+                    <strong class="gold-price">₱2,400</strong>
+                </div>
+            </div>
+
+            <a href="{{ route('bookings.index') }}" class="dashboard-btn">
+                Back to My Bookings
+            </a>
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
         </section>
     </main>
 

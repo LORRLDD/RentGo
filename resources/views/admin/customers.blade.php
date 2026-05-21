@@ -31,12 +31,15 @@
             <p>View all customer rentals grouped by account.</p>
         </header>
 
+<<<<<<< HEAD
         @if(session('success'))
             <div class="success-alert">
                 {{ session('success') }}
             </div>
         @endif
 
+=======
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
         @foreach($customers as $customer)
 
             <section class="admin-panel customer-group-card">
@@ -62,6 +65,7 @@
                             <p>Pickup: {{ $booking->PickupDate }}</p>
                             <p>Return: {{ $booking->ReturnDate }}</p>
                             <p>Status: {{ $booking->BookingStatus }}</p>
+<<<<<<< HEAD
 
                             @if($booking->BookingStatus === 'Pending')
                                 <form action="{{ route('admin.booking.accept', $booking->BookingID) }}" method="POST" style="margin-top: 12px;">
@@ -75,6 +79,8 @@
                                     </button>
                                 </form>
                             @endif
+=======
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
                         </div>
 
                         <div class="customer-payment-info">

@@ -39,13 +39,18 @@ Route::post('/book', [BookingController::class, 'store'])
 
 
 // =========================
+<<<<<<< HEAD
 // USER DASHBOARD (DB CONNECTED)
+=======
+// USER DASHBOARD
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
 // =========================
 Route::get('/dashboard', function () {
     if (Auth::user()->role === 'admin') {
         return redirect()->route('admin.dashboard');
     }
 
+<<<<<<< HEAD
     $bookings = Booking::with('car')
         ->where('CustomerID', Auth::id())
         ->latest('BookingID')
@@ -66,6 +71,9 @@ Route::get('/dashboard', function () {
         'totalSpent',
         'latestBooking'
     ));
+=======
+    return view('dashboard');
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
 })->middleware('auth')->name('dashboard');
 
 
@@ -74,12 +82,17 @@ Route::get('/dashboard', function () {
 // =========================
 Route::middleware('auth')->group(function () {
 
+<<<<<<< HEAD
     // ADMIN DASHBOARD (DB CONNECTED)
+=======
+    // ADMIN DASHBOARD
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
     Route::get('/admin-dashboard', function () {
         if (Auth::user()->role !== 'admin') {
             abort(403);
         }
 
+<<<<<<< HEAD
         $totalCars = Car::count();
         $totalCustomers = User::where('role', 'customer')->count();
         $totalBookings = Booking::count();
@@ -97,6 +110,9 @@ Route::middleware('auth')->group(function () {
             'totalRevenue',
             'customers'
         ));
+=======
+        return view('admin.dashboard');
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
     })->name('admin.dashboard');
 
 
@@ -158,6 +174,7 @@ Route::middleware('auth')->group(function () {
         return view('admin.customers', compact('customers'));
     })->name('admin.customers');
 
+<<<<<<< HEAD
     // ADMIN ACCEPT BOOKING
 Route::put('/admin-booking-accept/{id}', function ($id) {
     if (Auth::user()->role !== 'admin') {
@@ -173,6 +190,8 @@ Route::put('/admin-booking-accept/{id}', function ($id) {
 
     return back()->with('success', 'Booking accepted successfully.');
 })->name('admin.booking.accept');
+=======
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
 
     // ANALYTICS
     Route::get('/admin-analytics', function () {
@@ -180,6 +199,7 @@ Route::put('/admin-booking-accept/{id}', function ($id) {
             abort(403);
         }
 
+<<<<<<< HEAD
 $totalCars = Car::count();
 $availableCars = Car::where('Status', 'Available')->count();
 $rentedCars = Car::where('Status', 'Rented')->count();
@@ -193,6 +213,20 @@ $cancelledBookings = Booking::where('BookingStatus', 'Cancelled')->count();
 
 $totalRevenue = Booking::whereNotIn('BookingStatus', ['Cancelled', 'Pending'])
     ->sum('TotalAmount');
+=======
+        $totalCars = Car::count();
+        $availableCars = Car::where('Status', 'Available')->count();
+        $rentedCars = Car::where('Status', 'Rented')->count();
+
+        $totalCustomers = User::where('role', 'customer')->count();
+
+        $totalBookings = Booking::count();
+        $bookedBookings = Booking::where('BookingStatus', 'Booked')->count();
+        $pendingBookings = Booking::where('BookingStatus', 'Pending')->count();
+        $cancelledBookings = Booking::where('BookingStatus', 'Cancelled')->count();
+
+        $totalRevenue = Booking::sum('TotalAmount');
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
 
         return view('admin.analytics', compact(
             'totalCars',
@@ -232,6 +266,7 @@ Route::get('/my-bookings', function () {
 
 
 // BOOKING DETAILS
+<<<<<<< HEAD
 Route::get('/booking-details/{id}', function ($id) {
 
     $booking = Booking::with('car')
@@ -245,11 +280,19 @@ Route::get('/booking-details/{id}', function ($id) {
 
 })->middleware('auth')->name('booking.details');
 
+=======
+Route::get('/booking-details', function () {
+    return view('bookings.details');
+})->middleware('auth')->name('booking.details');
+
+
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
 // BOOK AGAIN
 Route::get('/book-again', function () {
     return redirect()->route('cars.show', 2);
 })->middleware('auth')->name('book.again');
 
+<<<<<<< HEAD
 // CANCEL BOOKING
 Route::put('/booking-cancel/{id}', function ($id) {
 
@@ -269,6 +312,8 @@ Route::put('/booking-cancel/{id}', function ($id) {
         ->with('success', 'Booking cancelled successfully.');
 
 })->middleware('auth')->name('booking.cancel');
+=======
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
 
 // PROFILE
 Route::get('/my-profile', [ProfileController::class, 'edit'])

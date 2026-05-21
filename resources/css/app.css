@@ -2158,6 +2158,7 @@ body {
     .analytics-summary-grid {
         grid-template-columns: 1fr;
     }
+<<<<<<< HEAD
 }
 
 .cancel-booking-btn {
@@ -2278,4 +2279,6 @@ body {
     .booking-details-total {
         text-align: left;
     }
+=======
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
 }

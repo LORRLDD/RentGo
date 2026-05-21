@@ -63,6 +63,7 @@
                         <span>Total</span>
                         <strong>₱{{ number_format($booking->TotalAmount, 2) }}</strong>
 
+<<<<<<< HEAD
                         <a href="{{ url('/booking-details/' . $booking->BookingID) }}" class="dashboard-btn">
     View Details
 </a>
@@ -79,6 +80,11 @@
                                 </button>
                             </form>
                         @endif
+=======
+                        <a href="{{ route('booking.details') }}" class="dashboard-btn">
+                            View Details
+                        </a>
+>>>>>>> 08b6d1334bbe4e4929c1ad5c42e60f24abef3c50
                     </div>
                 </div>
             @empty
